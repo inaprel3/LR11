@@ -1,0 +1,43 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+
+<style>
+    .container {
+        margin: 20px;
+        padding: 20px;
+        background-color: #f0f0f0;
+    }
+
+        .container h2 {
+            font-size: 24px;
+            margin-bottom: 10px;
+        }
+
+        .container ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        .container li {
+            font-size: 18px;
+            margin-bottom: 5px;
+        }
+
+        .container p {
+            font-size: 20px;
+            margin-top: 20px;
+        }
+</style>
+
+<div class="container">
+    <h2>Logs:</h2>
+    <ul>
+        @foreach (var logEntry in ViewBag.LogEntries)
+        {
+            <li>@logEntry.Time.ToString("yyyy-MM-dd HH:mm:ss") - @logEntry.MethodName</li>
+        }
+    </ul>
+    <h2>Unique Users Count:</h2>
+    <p>@ViewBag.UniqueUsersCount</p>
+</div>
